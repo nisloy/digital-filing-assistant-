@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* HCD Report Color Palette */
+  --color-navy:      #0A2A5E;  /* Main – Header, buttons, links */
+  --color-surface:   #E8EEF7;  /* Surface – Cards, file rows */
+  --color-amber:     #F5B301;  /* Reminder – Deadline alerts */
+  --color-hcd-red:   #B3261E;  /* Error – Failed upload, wrong input */
+  --color-hcd-green: #1B6E3C;  /* Success – File saved, reminder set */
+
+  /* Typography */
+  --font-noto: "Noto Sans", Arial, sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-noto);
+    -webkit-font-smoothing: antialiased;
+    background-color: #FFFFFF;
+    color: #0A2A5E;
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* HCD Typography Scale */
+  h1 { font-size: 28px; font-weight: 700; }
+  h2 { font-size: 22px; font-weight: 700; }
+  p, li { font-size: 16px; line-height: 1.5; }
+
+  /* Minimum tap target 44×44 px for all interactive elements */
+  button, a, input, [role="button"] {
+    min-height: 44px;
+  }
+}
+
+/* === Glass / Card Utilities (using HCD surface color) === */
+@utility hcd-card {
+  background-color: #E8EEF7;
+  border: 1px solid rgba(10, 42, 94, 0.1);
+  box-shadow: 0 2px 12px 0 rgba(10, 42, 94, 0.06);
+  border-radius: 0.75rem;
+}
+
+@utility hcd-sidebar {
+  background-color: #0A2A5E;
+  z-index: 10;
+}
+
+/* === Primary Button – Navy Blue === */
+@utility btn-primary {
+  background-color: #0A2A5E;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+@utility btn-primary-hover {
+  background-color: #0d3472;
+  transform: translateY(-1px);
+}
+
+/* === Amber Alert Badge === */
+@utility badge-amber {
+  background-color: #F5B301;
+  color: #0A2A5E;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+/* === Status badges === */
+@utility badge-error {
+  background-color: #FCEAEA;
+  color: #B3261E;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@utility badge-success {
+  background-color: #E6F4EC;
+  color: #1B6E3C;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* === Inline alert panels === */
+@utility alert-error {
+  background-color: #FCEAEA;
+  border: 1px solid #B3261E;
+  color: #B3261E;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+}
+
+@utility alert-success {
+  background-color: #E6F4EC;
+  border: 1px solid #1B6E3C;
+  color: #1B6E3C;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+}
+
+@utility alert-amber {
+  background-color: #FEF8E7;
+  border: 1px solid #F5B301;
+  color: #0A2A5E;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+}
