@@ -3,5 +3,5 @@ uvicorn[standard]
 sqlalchemy
 pydantic
 python-multipart
-google-generativeai
+google-genai
 python-dotenv
